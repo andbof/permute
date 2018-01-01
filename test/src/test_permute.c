@@ -196,18 +196,6 @@ const char* permute_in_child(unsigned int level)
 	return child_buf;
 }
 
-int count_lines(const char *buf)
-{
-	int cnt = 0;
-
-	for (const char *c = buf; *c; c++) {
-		if (*c == '\n')
-			cnt++;
-	}
-
-	return cnt;
-}
-
 int main(int argc, char **argv)
 {
 	unsigned int num_tests = 0;
@@ -226,15 +214,6 @@ int main(int argc, char **argv)
 
 		out = permute_in_child(test->level);
 		assert_strequals(out, test->out);
-
-#if 0
-		/* Sanity check the number of permutations that should be in the output */
-		int lines = count_lines(out);
-		int perms = 0;
-		for (unsigned int i = test->level; i; i--)
-			perms += i * i;
-		assert_equals(lines, perms);
-#endif
 
 		permute_free();
 		num_tests++;
