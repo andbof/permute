@@ -1,0 +1,5 @@
+language: c
+compiler:
+        - clang
+        - gcc
+script: ./bootstrap && ./configure && make && make check && make distcheck
