@@ -1,0 +1,40 @@
+permute reads lines from a file or standard input and generates all
+permutations to a specified depth. For example,
+
+	# echo -e "hello\nworld" ./permute 2
+	
+generates
+
+	hello
+	hellohello
+	helloworld
+	world
+	worldhello
+	worldworld
+
+Copyright (C) 2018 Andreas Bofjäll <andreas@gazonk.org>, see LICENSE for
+licensing details.
+
+WHERE TO GET IT
+
+  The official repository is at github: https://github.com/andbof/permute
+
+COMPILING FROM SOURCE
+
+  This is a pretty standard autotools project, so just run:
+
+  ./bootstrap
+  ./configure
+  make
+  make install
+
+RUNNING IT
+
+  ./permute -h
+  will give you help.
+
+WHY ON EARTH DO I NEED THIS?
+
+  I needed to generate permutations of some data sets I had, so I wrote it.
+  Perhaps you also feel like permuting stuff in your spare time?
+  Grow fascinated by the endless combinations possible!

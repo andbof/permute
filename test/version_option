@@ -1,0 +1,13 @@
+#!/bin/sh -x
+
+# Test the -V version option to ensure the binary works and
+# that is has the correct output.
+
+OUT="$($builddir/permute -V)"
+r=$?
+
+if [ "x$OUT" != "x$PACKAGE_NAME $PACKAGE_VERSION" ]; then
+	exit 1
+fi
+
+exit $r

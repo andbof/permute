@@ -1,0 +1,32 @@
+#!/bin/sh -x
+
+# Test the depth argument parsing to ensure it exits (and not e.g. SIGSEGVs)
+# when presented with an invalid value, and that 0 and 1 works as expected.
+
+for depth in -1 a; do
+	echo hello | $builddir/permute -- $depth
+	if [ $? -ne 1 ]; then
+		echo fail: depth $depth does not exit properly 1>&2
+		exit 1
+	fi
+done
+
+OUT="$(echo hello | $builddir/permute 0)"
+if [ $? -ne 0 ]; then
+	echo fail: depth 0 aborts 1>&2
+	exit 1
+fi
+if [ "x$OUT" != "x" ]; then
+	echo fail: depth 0 has output 1>&2
+	exit 1
+fi
+
+OUT="$(echo hello | $builddir/permute 1)"
+if [ $? -ne 0 ]; then
+	echo fail: depth 1 aborts 1>&2
+	exit 1
+fi
+if [ "x$OUT" != "xhello" ]; then
+	echo fail: depth 1 does not give correct output 1>&2
+	exit 1
+fi
