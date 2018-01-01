@@ -108,7 +108,7 @@ static void assert_strequals(const char *x, const char *y)
 {
 	if (!strcmp(x, y))
 		return;
-	
+
 	printf("Assertion failed: \"%s\" != \"%s\"\n", x, y);
 	exit(1);
 }

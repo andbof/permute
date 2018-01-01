@@ -2,7 +2,7 @@ permute reads lines from a file or standard input and generates all
 permutations to a specified depth. For example,
 
 	# echo -e "hello\nworld" ./permute 2
-	
+
 generates
 
 	hello
