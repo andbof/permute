@@ -2,4 +2,7 @@ language: c
 compiler:
         - clang
         - gcc
-script: ./bootstrap && ./configure && make && make check && make distcheck
+before_install:
+        - sudo apt-get -qq update
+        - sudo apt-get install valgrind
+script: ./bootstrap && ./configure && make && make check && make check-valgrind && make distcheck
