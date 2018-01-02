@@ -43,3 +43,8 @@ test_str_to_uint_SOURCES = \
                           src/str_to_uint.h
 
 @VALGRIND_CHECK_RULES@
+
+# This is a way of keeping version information in the distribution tarball
+# even when there is no version control system available.
+dist-hook:
+	echo $(PACKAGE_VERSION) > $(distdir)/.tarball-version

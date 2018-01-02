@@ -1,5 +1,5 @@
 AC_PREREQ([2.67])
-AC_INIT([permute],[m4_esyscmd_s([git describe --always --dirty])])
+AC_INIT([permute],m4_esyscmd_s([cat .tarball-version 2>/dev/null || git describe --always --dirty]))
 AM_INIT_AUTOMAKE([-Wall -Werror foreign subdir-objects])
 AC_CONFIG_SRCDIR([src/main.c])
 AC_CONFIG_HEADERS([config.h])
